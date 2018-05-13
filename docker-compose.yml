@@ -2,10 +2,15 @@ version: '2'
 services:
   webdav:
     build: .
-    ports:
-      - "80:80"
+    container_name: webdav
     volumes:
-      - "/mnt:/media"
+      - "/var/dav:/media"
     environment:
-      USERNAME: user
-      PASSWORD: passwd
+      VIRTUAL_HOST: webdav.local
+      USERNAME: ${USERNAME}
+      PASSWORD: ${PASSWORD}
+    restart: always
+networks:
+  default:
+    external:
+      name: rpi-nginx-proxy_default
