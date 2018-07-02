@@ -6,7 +6,7 @@ services:
     volumes:
       - "/var/dav:/media"
     environment:
-      VIRTUAL_HOST: webdav.local
+      VIRTUAL_HOST: webdav.home
       USERNAME: ${USERNAME}
       PASSWORD: ${PASSWORD}
     restart: always
